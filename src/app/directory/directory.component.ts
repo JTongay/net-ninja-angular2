@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Response } from '@angular/http';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-directory',
@@ -21,9 +23,18 @@ export class DirectoryComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private logger: LoggingService) { }
+
+  logIt(){
+    this.logger.log();
+  }
 
   ngOnInit() {
+    this.logger.fetchData().subscribe(
+      (data: Response)=>{
+        console.log(data.json());
+      }
+    );
   }
 
 }
