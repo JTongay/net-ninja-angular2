@@ -23,6 +23,8 @@ export class DirectoryComponent implements OnInit {
     }
   ]
 
+  pokemon: any[] = [];
+
   constructor(private logger: LoggingService) { }
 
   logIt(){
@@ -31,8 +33,8 @@ export class DirectoryComponent implements OnInit {
 
   ngOnInit() {
     this.logger.fetchData().subscribe(
-      (data: Response)=>{
-        console.log(data.json());
+      (data)=>{
+        console.log(data);
       }
     );
   }
