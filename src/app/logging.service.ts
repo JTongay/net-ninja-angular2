@@ -15,4 +15,8 @@ export class LoggingService {
     });
   }
 
+  getMyApi(){
+    return this.http.get('https://cryptic-island-60223.herokuapp.com/users');
+  }
+
 }

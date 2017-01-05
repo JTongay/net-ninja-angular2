@@ -23,6 +23,8 @@ export class DirectoryComponent implements OnInit {
     }
   ]
 
+  myApi: any[];
+
   pokemon: any[] = [];
 
   constructor(private logger: LoggingService) { }
@@ -35,6 +37,13 @@ export class DirectoryComponent implements OnInit {
     this.logger.fetchData().subscribe(
       (data)=>{
         console.log(data);
+      }
+    );
+
+    this.logger.getMyApi().subscribe(
+      (stuff)=>{
+        console.log(stuff.json());
+        this.myApi = stuff.json();
       }
     );
   }
